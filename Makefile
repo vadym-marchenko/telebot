@@ -27,28 +27,34 @@ push:
 
 clean:
 	rm -rf telebot
+	docker rmi ${REGISTRY}/${APP}:${VERSION}-${TARGETOS}-${TARGETARCH} || true
 
 linux:
 	$(MAKE) build TARGETOS=linux TARGETARCH=amd64
 	$(MAKE) image TARGETOS=linux TARGETARCH=arm64
 	$(MAKE) push TARGETOS=linux TARGETARCH=arm64
+	$(MAKE) clean TARGETOS=linux TARGETARCH=arm64
 
 windows:
 	$(MAKE) build TARGETOS=windows TARGETARCH=amd64
 	$(MAKE) image TARGETOS=windows TARGETARCH=arm64
 	$(MAKE) push TARGETOS=windows TARGETARCH=arm64
+	$(MAKE) clean TARGETOS=windows TARGETARCH=arm64
 
 macos:
 	$(MAKE) build TARGETOS=darwin TARGETARCH=amd64
 	$(MAKE) image TARGETOS=darwin TARGETARCH=arm64
 	$(MAKE) push TARGETOS=darwin TARGETARCH=arm64
+	$(MAKE) clean TARGETOS=darwin TARGETARCH=arm64
 
 linux-arm64:
 	$(MAKE) build TARGETOS=linux TARGETARCH=arm64
 	$(MAKE) image TARGETOS=linux TARGETARCH=arm64
 	$(MAKE) push TARGETOS=linux TARGETARCH=arm64
+	$(MAKE) clean TARGETOS=linux TARGETARCH=arm64
 
 windows-arm64:
 	$(MAKE) build TARGETOS=windows TARGETARCH=arm64
 	$(MAKE) image TARGETOS=windows TARGETARCH=arm64
 	$(MAKE) push TARGETOS=windows TARGETARCH=arm64
+	$(MAKE) clean TARGETOS=windows TARGETARCH=arm64

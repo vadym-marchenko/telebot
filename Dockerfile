@@ -1,4 +1,4 @@
-FROM golang:latest as builder
+FROM quay.io/projectquay/golang:1.24 as builder
 WORKDIR /go/src/app
 COPY . .
 RUN make build
