@@ -11,7 +11,8 @@ image:
   # This sets the pull policy for images.
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: v1.0.1-linux-arm64
+  tag: v1.0.1-linux
+  arch: amd64
 
 secret:
   # This is the name of the secret that contains the token.
@@ -19,5 +20,5 @@ secret:
   # This is the key in the secret that contains the token.
   tokenKey: token
   # This is the name of the environment variable that will be set to the token.
-  tokenName: TELEGRAM_BOT_TOKEN
+  tokenName: TELE_TOKEN
   
