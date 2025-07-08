@@ -4,16 +4,14 @@
 
 # This will set the replicaset count more information can be found here: https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/
 replicaCount: 1
-
 # This sets the container image more information can be found here: https://kubernetes.io/docs/concepts/containers/images/
 image:
   repository: ghcr.io/vadym-marchenko/telebot.git
   # This sets the pull policy for images.
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: v1.0.1-linux
+  tag: v1.0.1-d5708cd
   arch: amd64
-
 secret:
   # This is the name of the secret that contains the token.
   name: telebot-token
@@ -21,4 +19,3 @@ secret:
   tokenKey: token
   # This is the name of the environment variable that will be set to the token.
   tokenName: TELE_TOKEN
-  
