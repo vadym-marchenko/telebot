@@ -12,6 +12,7 @@ image:
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
   tag: v1.0.1-ac7a337
+  os: linux
   arch: amd64
 secret:
   # This is the name of the secret that contains the token.
